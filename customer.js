@@ -10,14 +10,15 @@ export class Customer {
     }
 
     statement() {
-        let result = "Rental record for " + this.name + "\n"
-        for (let i = 0; i < this.rentals.length; i++) {
-            let rental = this.rentals[i]
-            result += "\t" + rental.movie.title + "\t" + rental.fee() + "\n";
-        }
-        result += "Amount owed is " + this.rentalsFee() + "\n";
-        result += "You earned " + this.totalFrequentRenterPoints() + " frequent renter points.";
-        return result;
+        const header = `Rental record for ${this.name}\n`;
+
+        const rentalLines = this.rentals
+            .map(rental => `\t${rental.movie.title}\t${rental.fee()}`)
+            .join('\n');
+
+        const footer = `\nAmount owed is ${this.rentalsFee()}\nYou earned ${this.totalFrequentRenterPoints()} frequent renter points.`;
+
+        return header + rentalLines + footer;
     }
 
     totalFrequentRenterPoints() {

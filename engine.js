@@ -1,15 +1,9 @@
 import {Customer} from "./customer";
+import {Movie} from "./movie";
 
 class PriceCode {
   constructor(name) {
     this.name = name
-  }
-}
-
-class Movie {
-  constructor(title, priceCode) {
-    this.title = title
-    this.priceCode = priceCode
   }
 }
 

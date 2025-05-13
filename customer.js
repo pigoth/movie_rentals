@@ -1,4 +1,4 @@
-import {Rental} from "./engine";
+import {Rental, Store} from "./engine";
 
 export class Customer {
     constructor(name) {
@@ -37,14 +37,14 @@ export class Customer {
 
     rentalFee(rental) {
         let thisAmount = 0
-        if (rental.movie.priceCode.name === 'REGULAR') {
+        if (rental.movie.priceCode === Store.PRICE_CODE_REGULAR) {
             thisAmount += 2
             if (rental.daysRented > 2) {
                 thisAmount += ((rental.daysRented - 2) * 1.5);
             }
-        } else if (rental.movie.priceCode.name === 'NEW RELEASE') {
+        } else if (rental.movie.priceCode === Store.PRICE_CODE_NEW_RELEASE) {
             thisAmount += rental.daysRented * 3
-        } else if (rental.movie.priceCode.name === 'CHILDRENS') {
+        } else if (rental.movie.priceCode === Store.PRICE_CODE_CHILDRENS) {
             thisAmount += 1.5;
             if (rental.daysRented > 3) {
                 thisAmount = (rental.daysRented - 3) * 1.5;

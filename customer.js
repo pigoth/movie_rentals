@@ -36,7 +36,7 @@ export class Customer {
         let frequentRenterPoints = 1;
         // add frequent renter points
         // add bonus for a two-day new-release rental
-        if ((each.movie.priceCode.name === 'NEW RELEASE') && (each.daysRented > 1)) {
+        if ((each.movie.priceCode === Store.PRICE_CODE_NEW_RELEASE) && (each.daysRented > 1)) {
             frequentRenterPoints++;
         }
         return frequentRenterPoints;

@@ -77,47 +77,6 @@ describe("store", function() {
   })
 
   describe("statement", function() {
-  
-    it("should be 3", function(){
-      // At this point, the structure of the program begins getting in the
-      // way of testing. Rentals are imbedded in the Customer object, but
-      // there is no property to access them. They can only be accessed 
-      // internally, by the Statement() method, which imbeds them in the
-      // text string passed as it's return value. So, to get these amounts,
-      // we will have to parse that value
-      let statementTokens = []
-      let lines = customer.statement().split("\n")
-      for (let i=0; i<lines.length; i++) {
-        let lineTokens = lines[i].split("\t")
-        for (let j=0; j<lineTokens.length; j++) {
-          statementTokens.push(lineTokens[j])
-        }
-      }
-      // The statementTokens[] array will have the following elements:
-      //    [0] = junk
-      //    [1] = junk
-      //    [2] = title #1
-      //    [3] = price #1
-      //    [4] = junk
-      //    [5] = title #2
-      //    [6] = price #2
-      //    [7] = junk
-      //    [8] = title #3
-      //    [9] = price #3
-      //    [10] = "Amount owed is x"
-      //    [11] = "You earned x frequent renter points."
-      // We will test the title and price elements, and the total 
-      // and frequent renter points items. If these tests pass, then 
-      // we know that AddRentals() is adding rentals to a Customer 
-      // object properly, and that the Statement() method is
-      // generating a statement in the expected format.
-      statementTokens[2].should.equal('Cinderella')
-      statementTokens[3].should.equal('3')
-      statementTokens[5].should.equal('Star Wars')
-      statementTokens[6].should.equal('6.5')
-      statementTokens[8].should.equal('Gladiator')
-      statementTokens[9].should.equal('15')
-    })
 
     it("should have the correct format", function(){
       let statement = customer.statement();

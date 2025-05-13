@@ -1,4 +1,4 @@
-import {Store} from './engine.js'
+import {Store} from './store.js'
 import {Rental} from "./rental";
 import {StatementStringFormatter} from "./statement-string-formatter";
 

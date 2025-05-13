@@ -1,5 +1,5 @@
-import { Store} from './engine.js'
 import {Customer} from "./customer";
+import {Store} from './store.js'
 import {Rental} from "./rental";
 import {StatementStringFormatter} from "./statement-string-formatter";
 
@@ -88,7 +88,7 @@ describe("store", function() {
     it("should have the correct format and values when rented movie is children and rental duration is until 4 days", function(){
       let giuseppe = new Customer('Giuseppe Rossi');
       giuseppe.addRental(new Rental(children_movie, 4));
-      let statement = giuseppe.statement();
+      let statement = new StatementStringFormatter().format(giuseppe);
 
       statement.should.equal('Rental record for Giuseppe Rossi\n\tCinderella\t1.5\nAmount owed is 1.5\nYou earned 1 frequent renter points.')
     })
@@ -96,7 +96,7 @@ describe("store", function() {
     it("should have the correct format and values when rented movie is children and rental duration is greater than 4 days", function(){
       let giuseppe = new Customer('Giuseppe Rossi');
       giuseppe.addRental(new Rental(children_movie, 5));
-      let statement = giuseppe.statement();
+      let statement = new StatementStringFormatter().format(giuseppe);
 
       statement.should.equal('Rental record for Giuseppe Rossi\n\tCinderella\t3\nAmount owed is 3\nYou earned 1 frequent renter points.')
     })
@@ -104,7 +104,7 @@ describe("store", function() {
     it("should have the correct format and values when rented movie is regular and rental duration is until 2 days", function(){
       let giuseppe = new Customer('Giuseppe Rossi');
       giuseppe.addRental(new Rental(regular_movie, 2));
-      let statement = giuseppe.statement();
+      let statement = new StatementStringFormatter().format(giuseppe);
 
       statement.should.equal('Rental record for Giuseppe Rossi\n\tStar Wars\t2\nAmount owed is 2\nYou earned 1 frequent renter points.')
     })
@@ -112,7 +112,7 @@ describe("store", function() {
     it("should have the correct format and values when rented movie is regular and rental duration is greater than 2 days", function(){
       let giuseppe = new Customer('Giuseppe Rossi');
       giuseppe.addRental(new Rental(regular_movie, 4));
-      let statement = giuseppe.statement();
+      let statement = new StatementStringFormatter().format(giuseppe);
 
       statement.should.equal('Rental record for Giuseppe Rossi\n\tStar Wars\t5\nAmount owed is 5\nYou earned 1 frequent renter points.')
     })
@@ -120,7 +120,7 @@ describe("store", function() {
     it("should have the correct format and values when rented movie is new release and rental duration is 1 day", function(){
       let giuseppe = new Customer('Giuseppe Rossi');
       giuseppe.addRental(new Rental(new_release_movie, 1));
-      let statement = giuseppe.statement();
+      let statement = new StatementStringFormatter().format(giuseppe);
 
       statement.should.equal('Rental record for Giuseppe Rossi\n\tGladiator\t3\nAmount owed is 3\nYou earned 1 frequent renter points.')
     })
@@ -128,7 +128,7 @@ describe("store", function() {
     it("should have the correct format and values when rented movie is new release and rental duration is greater than 2 days", function(){
       let giuseppe = new Customer('Giuseppe Rossi');
       giuseppe.addRental(new Rental(new_release_movie, 2));
-      let statement = giuseppe.statement();
+      let statement = new StatementStringFormatter().format(giuseppe);
 
       statement.should.equal('Rental record for Giuseppe Rossi\n\tGladiator\t6\nAmount owed is 6\nYou earned 2 frequent renter points.')
     })

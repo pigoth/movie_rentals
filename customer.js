@@ -11,12 +11,7 @@ export class Customer {
 
     statement() {
         let totalAmount = this.rentalsFee();
-
-        let totalFrequentRenterPoints = 0
-        for (let i = 0; i < this.rentals.length; i++) {
-            let rental = this.rentals[i]
-            totalFrequentRenterPoints += rental.frequentRenterPoints();
-        }
+        let totalFrequentRenterPoints = this.totalFrequentRenterPoints();
 
         let result = "Rental record for " + this.name + "\n"
         // determine amounts for each line
@@ -29,6 +24,15 @@ export class Customer {
         result += "Amount owed is " + totalAmount + "\n";
         result += "You earned " + totalFrequentRenterPoints + " frequent renter points.";
         return result;
+    }
+
+    totalFrequentRenterPoints() {
+        let totalFrequentRenterPoints = 0
+        for (let i = 0; i < this.rentals.length; i++) {
+            let rental = this.rentals[i]
+            totalFrequentRenterPoints += rental.frequentRenterPoints();
+        }
+        return totalFrequentRenterPoints;
     }
 
     rentalsFee() {

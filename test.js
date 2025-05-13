@@ -70,6 +70,10 @@ describe("store", function() {
       customer.rentalsFee().should.equal(24.5)
     })
 
+    it("should have the correct frequent renter points", function(){
+      customer.totalFrequentRenterPoints().should.equal(4)
+    })
+
   })
 
   describe("statement", function() {

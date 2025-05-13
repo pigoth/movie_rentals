@@ -1,6 +1,7 @@
 import { Store} from './engine.js'
 import {Customer} from "./customer";
 import {Rental} from "./rental";
+import {StatementStringFormatter} from "./statement-string-formatter";
 
 let chai = require('chai')
 chai.should()
@@ -79,7 +80,7 @@ describe("store", function() {
   describe("statement", function() {
 
     it("should have the correct format", function(){
-      let statement = customer.statement();
+      let statement = new StatementStringFormatter().format(customer);
 
       statement.should.equal('Rental record for John Smith\n\tCinderella\t3\n\tStar Wars\t6.5\n\tGladiator\t15\nAmount owed is 24.5\nYou earned 4 frequent renter points.')
     })

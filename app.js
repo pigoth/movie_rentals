@@ -1,5 +1,6 @@
 import {Store} from './engine.js'
 import {Rental} from "./rental";
+import {StatementStringFormatter} from "./statement-string-formatter";
 
 let store = new Store()
 
@@ -13,7 +14,9 @@ john_smith.addRental(new Rental(cinderella, 5))
 john_smith.addRental(new Rental(star_wars, 5))
 john_smith.addRental(new Rental(gladiator, 5))
 
-console.log(john_smith.statement())
+let statementFormatter = new StatementStringFormatter();
+
+console.log(statementFormatter.format(john_smith))
 
 // You should see:
 

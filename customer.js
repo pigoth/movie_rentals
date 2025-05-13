@@ -9,18 +9,6 @@ export class Customer {
         return rental;
     }
 
-    statement() {
-        const header = `Rental record for ${this.name}\n`;
-
-        const rentalLines = this.rentals
-            .map(rental => `\t${rental.movie.title}\t${rental.fee()}`)
-            .join('\n');
-
-        const footer = `\nAmount owed is ${this.rentalsFee()}\nYou earned ${this.totalFrequentRenterPoints()} frequent renter points.`;
-
-        return header + rentalLines + footer;
-    }
-
     totalFrequentRenterPoints() {
         return this.rentals.reduce((total, rental) => total + rental.frequentRenterPoints(), 0)
     }

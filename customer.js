@@ -32,11 +32,6 @@ export class Customer {
     }
 
     rentalsFee() {
-        let totalAmount = 0
-        for (let i = 0; i < this.rentals.length; i++) {
-            let rental = this.rentals[i]
-            totalAmount += rental.fee();
-        }
-        return totalAmount;
+        return this.rentals.reduce((total, rental) => total + rental.fee(), 0)
     }
 }

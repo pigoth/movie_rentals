@@ -1,6 +1,7 @@
 import {Store} from './store.js'
 import {Rental} from "./rental";
 import {StatementStringFormatter} from "./statement-string-formatter";
+import {Customer} from "./customer";
 
 let store = new Store()
 
@@ -8,7 +9,7 @@ let cinderella = store.addMovie('Cinderella', Store.PRICE_CODE_CHILDRENS)
 let star_wars = store.addMovie('Star Wars', Store.PRICE_CODE_REGULAR)
 let gladiator = store.addMovie('Gladiator', Store.PRICE_CODE_NEW_RELEASE)
 
-let john_smith = store.addCustomer('John Smith')
+let john_smith = store.addCustomer(new Customer('John Smith'))
 
 john_smith.addRental(new Rental(cinderella, 5))
 john_smith.addRental(new Rental(star_wars, 5))

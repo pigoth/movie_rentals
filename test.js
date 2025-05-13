@@ -66,6 +66,10 @@ describe("store", function() {
       customer.rentals[2].daysRented.should.equal(5)
     })
 
+    it("should have the correct rentals fee", function(){
+      customer.rentalsFee().should.equal(24.5)
+    })
+
   })
 
   describe("statement", function() {

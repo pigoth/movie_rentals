@@ -109,6 +109,12 @@ describe("store", function() {
       statementTokens[9].should.equal('15')
     })
 
+    it("should have the correct format", function(){
+      let statement = customer.statement();
+
+      statement.should.equal('Rental record for John Smith\n\tCinderella\t3\n\tStar Wars\t6.5\n\tGladiator\t15\nAmount owed is 24.5\nYou earned 4 frequent renter points.')
+    })
+
   })
 
 }) 

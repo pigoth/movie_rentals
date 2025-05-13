@@ -1,6 +1,3 @@
-import {Store} from "./engine";
-import {Rental} from "./rental";
-
 export class Customer {
     constructor(name) {
         this.name = name
@@ -31,6 +28,5 @@ export class Customer {
         result += "You earned " + totalFrequentRenterPoints + " frequent renter points.";
         return result;
     }
-
 
 }

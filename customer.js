@@ -18,7 +18,7 @@ export class Customer {
         // determine amounts for each line
         for (let i = 0; i < this.rentals.length; i++) {
             let each = this.rentals[i]
-            let thisAmount = this.rentalCost(each);
+            let thisAmount = this.rentalFee(each);
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two-day new-release rental
@@ -35,19 +35,19 @@ export class Customer {
         return result;
     }
 
-    rentalCost = (each) => {
+    rentalFee = (rental) => {
         let thisAmount = 0
-        if (each.movie.priceCode.name === 'REGULAR') {
+        if (rental.movie.priceCode.name === 'REGULAR') {
             thisAmount += 2
-            if (each.daysRented > 2) {
-                thisAmount += ((each.daysRented - 2) * 1.5);
+            if (rental.daysRented > 2) {
+                thisAmount += ((rental.daysRented - 2) * 1.5);
             }
-        } else if (each.movie.priceCode.name === 'NEW RELEASE') {
-            thisAmount += each.daysRented * 3
-        } else if (each.movie.priceCode.name === 'CHILDRENS') {
+        } else if (rental.movie.priceCode.name === 'NEW RELEASE') {
+            thisAmount += rental.daysRented * 3
+        } else if (rental.movie.priceCode.name === 'CHILDRENS') {
             thisAmount += 1.5;
-            if (each.daysRented > 3) {
-                thisAmount = (each.daysRented - 3) * 1.5;
+            if (rental.daysRented > 3) {
+                thisAmount = (rental.daysRented - 3) * 1.5;
             }
         }
         return thisAmount;

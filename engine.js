@@ -1,11 +1,6 @@
 import {Customer} from "./customer";
 import {Movie} from "./movie";
-
-class PriceCode {
-  constructor(name) {
-    this.name = name
-  }
-}
+import {PriceCode} from "./price-code";
 
 export class Store {
   constructor() {

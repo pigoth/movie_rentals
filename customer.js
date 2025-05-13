@@ -18,11 +18,11 @@ export class Customer {
         let result = "Rental record for " + this.name + "\n"
         // determine amounts for each line
         for (let i = 0; i < this.rentals.length; i++) {
-            let each = this.rentals[i]
-            let thisAmount = each.fee(each);
-            let frequentRenterPoints = this.frequentRenterPoints(each);
+            let rental = this.rentals[i]
+            let thisAmount = rental.fee(rental);
+            let frequentRenterPoints = this.frequentRenterPoints(rental);
             // show figures for this rental
-            result += "\t" + each.movie.title + "\t" + thisAmount + "\n";
+            result += "\t" + rental.movie.title + "\t" + thisAmount + "\n";
             totalAmount += thisAmount;
             totalFrequentRenterPoints += frequentRenterPoints;
         }
@@ -32,8 +32,8 @@ export class Customer {
         return result;
     }
 
-    frequentRenterPoints(each) {
-        let isMoreThanOneDayNewReleaseRental = each.movie.priceCode === Store.PRICE_CODE_NEW_RELEASE && each.daysRented > 1;
+    frequentRenterPoints(rental) {
+        let isMoreThanOneDayNewReleaseRental = rental.movie.priceCode === Store.PRICE_CODE_NEW_RELEASE && rental.daysRented > 1;
         return isMoreThanOneDayNewReleaseRental ? 2 : 1;
     }
 }

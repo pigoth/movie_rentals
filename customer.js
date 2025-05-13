@@ -20,7 +20,7 @@ export class Customer {
         for (let i = 0; i < this.rentals.length; i++) {
             let rental = this.rentals[i]
             let thisAmount = rental.fee();
-            let frequentRenterPoints = this.frequentRenterPoints(rental);
+            let frequentRenterPoints = rental.frequentRenterPoints();
             // show figures for this rental
             result += "\t" + rental.movie.title + "\t" + thisAmount + "\n";
             totalAmount += thisAmount;
@@ -32,8 +32,5 @@ export class Customer {
         return result;
     }
 
-    frequentRenterPoints(rental) {
-        let isMoreThanOneDayNewReleaseRental = rental.movie.priceCode === Store.PRICE_CODE_NEW_RELEASE && rental.daysRented > 1;
-        return isMoreThanOneDayNewReleaseRental ? 2 : 1;
-    }
+
 }

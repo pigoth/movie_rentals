@@ -26,4 +26,8 @@ export class Rental {
         }
     }
 
+    frequentRenterPoints() {
+        let isMoreThanOneDayNewReleaseRental = this.movie.priceCode === Store.PRICE_CODE_NEW_RELEASE && this.daysRented > 1;
+        return isMoreThanOneDayNewReleaseRental ? 2 : 1;
+    }
 }

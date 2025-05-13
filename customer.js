@@ -1,4 +1,5 @@
-import {Rental, Store} from "./engine";
+import {Store} from "./engine";
+import {Rental} from "./rental";
 
 export class Customer {
     constructor(name) {

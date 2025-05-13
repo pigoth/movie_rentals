@@ -13,13 +13,6 @@ class Movie {
   }
 }
 
-export class Rental {
-  constructor(movie, daysRented) {
-    this.movie = movie
-    this.daysRented = daysRented
-  }
-}
-
 export class Store {
   constructor() {
     this.movies = []

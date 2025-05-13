@@ -1,5 +1,6 @@
-import {Rental, Store} from './engine.js'
+import { Store} from './engine.js'
 import {Customer} from "./customer";
+import {Rental} from "./rental";
 
 let chai = require('chai')
 chai.should()

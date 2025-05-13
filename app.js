@@ -1,4 +1,5 @@
-import {Rental, Store} from './engine.js'
+import {Store} from './engine.js'
+import {Rental} from "./rental";
 
 let store = new Store()
 

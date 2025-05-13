@@ -1,4 +1,3 @@
-import {Movie} from "./movie";
 import {PriceCode} from "./price-code";
 
 export class Store {
@@ -6,11 +5,12 @@ export class Store {
     this.movies = []
     this.customers = []
   }
-  addMovie(name, priceCode) {
-    let movie = new Movie(name, priceCode)
+
+  addMovie(movie) {
     this.movies.push(movie);
     return movie;
   }
+
   addCustomer(customer) {
     this.customers.push(customer)
     return customer

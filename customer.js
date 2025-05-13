@@ -18,20 +18,7 @@ export class Customer {
         // determine amounts for each line
         for (let i = 0; i < this.rentals.length; i++) {
             let each = this.rentals[i]
-            let thisAmount = 0
-            if (each.movie.priceCode.name === 'REGULAR') {
-                thisAmount += 2
-                if (each.daysRented > 2) {
-                    thisAmount += ((each.daysRented - 2) * 1.5);
-                }
-            } else if (each.movie.priceCode.name === 'NEW RELEASE') {
-                thisAmount += each.daysRented * 3
-            } else if (each.movie.priceCode.name === 'CHILDRENS') {
-                thisAmount += 1.5;
-                if (each.daysRented > 3) {
-                    thisAmount = (each.daysRented - 3) * 1.5;
-                }
-            }
+            let thisAmount = this.rentalCost(each);
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two-day new-release rental
@@ -46,5 +33,23 @@ export class Customer {
         result += "Amount owed is " + totalAmount + "\n";
         result += "You earned " + frequentRenterPoints + " frequent renter points.";
         return result;
+    }
+
+    rentalCost = (each) => {
+        let thisAmount = 0
+        if (each.movie.priceCode.name === 'REGULAR') {
+            thisAmount += 2
+            if (each.daysRented > 2) {
+                thisAmount += ((each.daysRented - 2) * 1.5);
+            }
+        } else if (each.movie.priceCode.name === 'NEW RELEASE') {
+            thisAmount += each.daysRented * 3
+        } else if (each.movie.priceCode.name === 'CHILDRENS') {
+            thisAmount += 1.5;
+            if (each.daysRented > 3) {
+                thisAmount = (each.daysRented - 3) * 1.5;
+            }
+        }
+        return thisAmount;
     }
 }

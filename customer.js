@@ -37,19 +37,19 @@ export class Customer {
 
     rentalFee(rental) {
         if (rental.movie.priceCode === Store.PRICE_CODE_REGULAR) {
-            let thisAmount = 2
+            let fee = 2
             if (rental.daysRented > 2) {
-                thisAmount += ((rental.daysRented - 2) * 1.5);
+                fee += ((rental.daysRented - 2) * 1.5);
             }
-            return thisAmount;
+            return fee;
         } else if (rental.movie.priceCode === Store.PRICE_CODE_NEW_RELEASE) {
             return  rental.daysRented * 3
         } else if (rental.movie.priceCode === Store.PRICE_CODE_CHILDRENS) {
-            let thisAmount = 1.5;
+            let fee = 1.5;
             if (rental.daysRented > 3) {
-                thisAmount = (rental.daysRented - 3) * 1.5;
+                fee = (rental.daysRented - 3) * 1.5;
             }
-            return thisAmount;
+            return fee;
         } else {
             return 0;
         }

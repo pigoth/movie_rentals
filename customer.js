@@ -27,12 +27,7 @@ export class Customer {
     }
 
     totalFrequentRenterPoints() {
-        let totalFrequentRenterPoints = 0
-        for (let i = 0; i < this.rentals.length; i++) {
-            let rental = this.rentals[i]
-            totalFrequentRenterPoints += rental.frequentRenterPoints();
-        }
-        return totalFrequentRenterPoints;
+        return this.rentals.reduce((total, rental) => total + rental.frequentRenterPoints(), 0)
     }
 
     rentalsFee() {

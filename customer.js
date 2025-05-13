@@ -6,8 +6,7 @@ export class Customer {
         this.rentals = []
     }
 
-    addRental(movie, daysRented) {
-        let rental = new Rental(movie, daysRented);
+    addRental(rental) {
         this.rentals.push(rental)
         return rental;
     }

@@ -6,7 +6,7 @@ export class Rental {
         this.daysRented = daysRented
     }
 
-    rentalFee() {
+    fee() {
         if (this.movie.priceCode === Store.PRICE_CODE_REGULAR) {
             let fee = 2
             if (this.daysRented > 2) {

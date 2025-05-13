@@ -19,7 +19,7 @@ export class Customer {
         // determine amounts for each line
         for (let i = 0; i < this.rentals.length; i++) {
             let each = this.rentals[i]
-            let thisAmount = each.rentalFee(each);
+            let thisAmount = each.fee(each);
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two-day new-release rental

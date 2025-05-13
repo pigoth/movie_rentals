@@ -35,7 +35,7 @@ export class Customer {
         return result;
     }
 
-    rentalFee = (rental) => {
+    rentalFee(rental) {
         let thisAmount = 0
         if (rental.movie.priceCode.name === 'REGULAR') {
             thisAmount += 2

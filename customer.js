@@ -19,7 +19,7 @@ export class Customer {
         // determine amounts for each line
         for (let i = 0; i < this.rentals.length; i++) {
             let rental = this.rentals[i]
-            let thisAmount = rental.fee(rental);
+            let thisAmount = rental.fee();
             let frequentRenterPoints = this.frequentRenterPoints(rental);
             // show figures for this rental
             result += "\t" + rental.movie.title + "\t" + thisAmount + "\n";
